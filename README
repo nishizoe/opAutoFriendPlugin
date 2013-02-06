@@ -5,26 +5,11 @@
 
 /etc/crontab などに以下のようにcronの設定を行ないます。
 
-0 * * * * cd /var/www/OPENPNE_DIR/ && /usr/bin/php symfony opAutoFriend:auto
-上記の設定では、毎時０分に全メンバーのフレンドリンクを行ないます。
-
-symfony opAutoFriend:auto
-全ユーザー同士をフレンドリンクにする。
+0 * * * * cd /var/www/OPENPNE_DIR/ && /usr/bin/php symfony opAutoFriend:auto --member=1
+上記の設定では、毎時０分にid=1のメンバーと全メンバーのフレンドリンクを行ないます。
 
 symfony opAutoFriend:auto --member=9999
 id=9999 のユーザーを全フレンドリンクにする。
-
-symfony opAutoFriend:auto --community=9999
-コミュニティid=9999 内の全メンバーをフレンドリンクにする。
-
-symfony opAutoFriend:auto --disconnectall
-全ユーザー同士のフレンドリンクを解除する。
-
-symfony opAutoFriend:auto --disconnect --member=9999
-id=9999 のユーザーの全フレンドリンクを解除する。
-
-symfony opAutoFriend:auto --disconnect --community=9999
-コミュニティid=9999内の全メンバーのフレンドリンクを解除する。
 
 ■TODO
 ・コミュニティ指定やフレンド指定にバグがあるので修正
@@ -36,6 +21,7 @@ symfony opAutoFriend:auto --disconnect --community=9999
 ・コミュニティ指定時のフレンドリンクがおかしい、モデルのパラメータが足りないなど
 
 ■更新情報
+・2013/02/06 integrace様向け機能限定ブランチを作成。
 ・2013/02/05 task名を変更した。
 ・2010/07/26 ログイン停止中のメンバーとフレンドにならないようにした。
 ・2010/07/09 Ver1.1 指定したコミュニティ内の全メンバーとのフレンドリンクに対応した。
